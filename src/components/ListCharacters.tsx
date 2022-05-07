@@ -9,7 +9,7 @@ type CharacterType = {
   image: string;
   gender: string;
 };
-export function List() {
+export function ListCharacters() {
   const [characters, setCharacters] = useState<CharacterType[]>([]);
   function carregarCharacters() {
     axios
