@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
+import { ListEpisodes } from "./components/ListEpisodes";
 import { ListLocations } from "./components/ListLocations";
 
 const navigation = [
@@ -84,7 +85,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
             {/* Replace with your content */}
             <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
-              <ListLocations />
+              <ListEpisodes />
             </div>
             {/* /End replace */}
           </div>
