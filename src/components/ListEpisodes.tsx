@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Modal from "./Modal";
 
 type EpisodesType = {
   id: number;
@@ -11,6 +12,7 @@ type EpisodesType = {
 
 export function ListEpisodes() {
   const [episodes, setEpisodes] = useState<EpisodesType[]>([]);
+  const [open, setOpen] = useState(false)
   function carregarEpisodes() {
     axios
       .get("https://rickandmortyapi.com/api/episode")
@@ -58,7 +60,7 @@ export function ListEpisodes() {
           <tbody>
             {episodes.map(
               (
-                { id, name, air_date, episode}: EpisodesType,
+                { id, name, air_date, episode, characters}: EpisodesType,
                 planIdx
               ) => (
                 <tr key={id}>
@@ -101,7 +103,9 @@ export function ListEpisodes() {
                     <button
                       type="button"
                       className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-30"
+                      onClick={()=>setOpen(!open)}
                     >
+                      <Modal open={open} setOpen={setOpen} characters={characters}/>
                       Ver Personagens
                     </button>
                     {planIdx !== 0 ? (

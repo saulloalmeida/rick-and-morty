@@ -1,19 +1,30 @@
 import { Disclosure } from "@headlessui/react";
 import { SearchIcon } from "@heroicons/react/solid";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import { ListCharacters } from "./components/ListCharacters";
 import { ListEpisodes } from "./components/ListEpisodes";
 import { ListLocations } from "./components/ListLocations";
 
-const navigation = [
-  { name: "Characters", href: "#", current: true },
-  { name: "Locations", href: "#", current: false },
-  { name: "Episodes", href: "#", current: false },
+const itemsNavigation = [
+  { name: "Characters", href: "/characters", current: false },
+  { name: "Locations", href: "/locations", current: false },
+  { name: "Episodes", href: "/episodes", current: false },
 ];
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
-
 export default function App() {
+  const [navigation, setNavigation] = useState(itemsNavigation);
+
+  function handleClick(index: number) {
+    itemsNavigation[index].current = !itemsNavigation[index].current;
+    setNavigation(itemsNavigation);
+  }
+
+
   return (
     <>
       <div className="min-h-full">
@@ -34,8 +45,9 @@ export default function App() {
                   </div>
                   <div className="lg:block lg:ml-10">
                     <div className="flex space-x-4">
-                      {navigation.map((item) => (
+                      {navigation.map((item, index) => (
                         <a
+                          onClick={() => handleClick(index)}
                           key={item.name}
                           href={item.href}
                           className={classNames(
@@ -85,7 +97,11 @@ export default function App() {
           <div className="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
             {/* Replace with your content */}
             <div className="bg-white rounded-lg shadow px-5 py-6 sm:px-6">
-              <ListEpisodes />
+              <Routes>
+                <Route path="characters" element={<ListCharacters />} />
+                <Route path="episodes" element={<ListEpisodes />} />
+                <Route path="locations" element={<ListLocations />} />
+              </Routes>
             </div>
             {/* /End replace */}
           </div>
