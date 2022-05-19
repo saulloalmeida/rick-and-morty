@@ -100,14 +100,14 @@ export function ListEpisodes() {
                       "relative py-3.5 pl-3 pr-4 sm:pr-6 text-right text-sm font-medium"
                     )}
                   >
-                    <button
+                    {/* <button
                       type="button"
                       className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-30"
                       onClick={()=>setOpen(!open)}
                     >
                       <Modal open={open} setOpen={setOpen} characters={characters}/>
                       Ver Personagens
-                    </button>
+                    </button> */}
                     {planIdx !== 0 ? (
                       <div className="absolute right-6 left-0 -top-px h-px bg-gray-200" />
                     ) : null}

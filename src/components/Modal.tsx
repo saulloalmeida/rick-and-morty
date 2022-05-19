@@ -10,7 +10,7 @@ type modalProps = {
 };
 
 export default function Example({open, setOpen, characters}:modalProps) {
-
+  console.log(characters.map((item)=>item))
 
   function handleClick(){
     setOpen(true)

@@ -19,35 +19,30 @@ function classNames(...classes: any) {
 export default function App() {
   const [navigation, setNavigation] = useState(itemsNavigation);
 
-  function handleClick(index: number) {
-    itemsNavigation[index].current = !itemsNavigation[index].current;
-    setNavigation(itemsNavigation);
-  }
-
 
   return (
     <>
       <div className="min-h-full">
-        <div className="bg-indigo-600 pb-32">
+        <div className="bg-[#FAE48BFF] pb-32">
           <Disclosure
             as="nav"
-            className="bg-indigo-600 border-b border-indigo-300 border-opacity-25 lg:border-none"
+            className="bg-[#24325FFF] border-b border-indigo-300 border-opacity-25 lg:border-none"
           >
             <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
               <div className="relative h-16 flex items-center justify-between lg:border-b lg:border-indigo-400 lg:border-opacity-25">
                 <div className="px-2 flex items-center lg:px-0">
                   <div className="flex-shrink-0">
                     <img
-                      className="block h-8 w-8"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-300.svg"
+                      className="block h-8 w-8 rounded-full"
+                      src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
                       alt="Workflow"
                     />
+                    
                   </div>
                   <div className="lg:block lg:ml-10">
                     <div className="flex space-x-4">
                       {navigation.map((item, index) => (
                         <a
-                          onClick={() => handleClick(index)}
                           key={item.name}
                           href={item.href}
                           className={classNames(
@@ -65,7 +60,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="hidden flex-1 px-2 md:flex justify-center lg:ml-6 lg:justify-end">
-                  <div className="max-w-lg w-full lg:max-w-xs">
+                  {/* <div className="max-w-lg w-full lg:max-w-xs">
                     <label htmlFor="search" className="sr-only">
                       Search
                     </label>
@@ -81,14 +76,14 @@ export default function App() {
                         name="search"
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
           </Disclosure>
           <header className="py-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold text-white">List</h1>
+              <h1 className="text-3xl font-bold text-white"></h1>
             </div>
           </header>
         </div>
